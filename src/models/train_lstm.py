@@ -1,4 +1,17 @@
-def train_lstm():
+import tensorflow as tf  
+import matplotlib.pyplot as plt  
+import seaborn as sns 
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report 
+from sklearn.model_selection import KFold  
+from sklearn.model_selection import cross_val_score
+import mlflow
+
+def train_lstm(X_train,X_test,y_train,y_test):
     
     tokenizer = Tokenizer(num_words=5000)
     tokenizer.fit_on_texts(X_train)

@@ -1,3 +1,12 @@
+"""
+This module contains functions to evaluate machine learning models and log their performance to MLflow.
+"""
+
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+import mlflow
+
 def evaluate_model(y_true, y_pred, model_name):
     """Evaluates and logs model performance to MLflow."""
     accuracy = accuracy_score(y_true, y_pred)
@@ -10,7 +19,7 @@ def evaluate_model(y_true, y_pred, model_name):
     cm = confusion_matrix(y_true, y_pred)
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
     plt.title(f"{model_name} Confusion Matrix")
-    plt.show()
+    mlflow.log_metric("f1_score_negative", report['0']['f1-score'])
 
     # Log metrics to MLflow
     mlflow.log_metric("accuracy", accuracy)

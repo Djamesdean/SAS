@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/merkava/Documents/School/Software%20engineering/SAS/mlruns/0/ded02347b9a8488289e7af0b20aeb83a/artifacts
+end_time: 1738844650815
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ded02347b9a8488289e7af0b20aeb83a
+run_name: flawless-fly-416
+run_uuid: ded02347b9a8488289e7af0b20aeb83a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738844648651
+status: 3
+tags: []
+user_id: merkava
