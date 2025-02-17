@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/merkava/Documents/School/Software%20engineering/SAS/src/tests/mlruns/0/e4ffe1fe22a5412db6ce8e4874af29ba/artifacts
+end_time: 1739126255435
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e4ffe1fe22a5412db6ce8e4874af29ba
+run_name: sincere-colt-538
+run_uuid: e4ffe1fe22a5412db6ce8e4874af29ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739126255430
+status: 4
+tags: []
+user_id: merkava

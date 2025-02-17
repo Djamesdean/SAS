@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/merkava/Documents/School/Software%20engineering/SAS/src/tests/mlruns/0/7c0de75637334ad7b339173d2c43d8d3/artifacts
+end_time: 1739127186584
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7c0de75637334ad7b339173d2c43d8d3
+run_name: bald-trout-219
+run_uuid: 7c0de75637334ad7b339173d2c43d8d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739127186576
+status: 4
+tags: []
+user_id: merkava

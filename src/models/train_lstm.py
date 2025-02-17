@@ -1,3 +1,4 @@
+import numpy as np
 import tensorflow as tf  
 import matplotlib.pyplot as plt  
 import seaborn as sns 
@@ -17,8 +18,9 @@ def train_lstm(X_train,X_test,y_train,y_test):
     tokenizer.fit_on_texts(X_train)
     X_train_seq = pad_sequences(tokenizer.texts_to_sequences(X_train), maxlen=200)
     X_test_seq = pad_sequences(tokenizer.texts_to_sequences(X_test), maxlen=200)
-
-    embedding_index = {}
+   
+   
+    """embedding_index = {}
     with open('/Users/merkava/Documents/School/Machine Learning/glove.6B.100d.txt', 'r') as f:
         for line in f:
             values = line.split()
@@ -31,13 +33,15 @@ def train_lstm(X_train,X_test,y_train,y_test):
         if i < 5000:
             embedding_vector = embedding_index.get(word)
             if embedding_vector is not None:
-                embedding_matrix[i] = embedding_vector
+                embedding_matrix[i] = embedding_vector"""
+    
     
     
     # Define LSTM model creation function
     def create_lstm_model():
         model = Sequential()
-        model.add(Embedding(input_dim=5000, output_dim=100, input_length=100 ,weights=[embedding_matrix], 
+        #,weights=[embedding_matrix] embedder here 
+        model.add(Embedding(input_dim=5000, output_dim=100, input_length=100 , 
                             trainable=False))
         model.add(LSTM(128, dropout=0.3, recurrent_dropout=0.3))
         model.add(Dense(64, activation='relu'))  # Additional dense layer

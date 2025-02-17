@@ -5,6 +5,8 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+
+
 def preprocess_data(data):
     
     data.dropna(inplace=True)

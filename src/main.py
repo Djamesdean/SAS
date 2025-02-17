@@ -1,29 +1,60 @@
-from features.mlflow import dags_access
-from models.evaluate import evaluate_model
-from models.train_logistic_regression import train_logistic_regression
-from models.train_naive_bayes import train_naive_bayes
-from visualization.visualize_data import data_visualize, plot_wordclouds
-from data.load_data import preprocess_data
-import pandas as pd
-
-data = pd.read_csv('data/raw/Steam.csv')
-
-print(data.shape)
-print(f"Dataset shape: {data.shape}")
-
-def main():
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
+from models.model_loader import (
+    naive_bayes,
+    logistic_regression,
     
-    x_train_tfidf, x_test_tfidf, y_train, y_test= preprocess_data(data)
+)
+from data.data_preparation import preprocess_text
+import numpy as np
 
-    train_logistic_regression(x_train_tfidf, y_train, x_test_tfidf, y_test, evaluate_model)
-    train_naive_bayes(x_train_tfidf, x_test_tfidf, y_train, y_test, evaluate_model)
+app = FastAPI()
 
+# Serve static files (e.g., icons, favicon)
+app.mount("/statics", StaticFiles(directory="statics"), name="statics")
+
+# Root endpoint
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Sentiment Analysis API!"}
+
+# Favicon endpoint
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse("statics/favicon.ico")
+
+class TextRequest(BaseModel):
+    text: str
+    model: str = "logistic_regression"  # Default model
+
+@app.post("/predict")
+async def predict_sentiment(request: TextRequest):
+    try:
+        # Clean input text
+        cleaned_text = preprocess_text(request.text)
+        
+        # Choose model
+        if request.model == "naive_bayes":
+            prediction = naive_bayes.predict(cleaned_text)[0]
+        elif request.model == "logistic_regression":
+            prediction = logistic_regression.predict(cleaned_text)[0]
+        elif request.model == "LSTM":
+            # Add LSTM-specific preprocessing
+            prediction = lstm_model.predict(cleaned_text)[0].item()
+        else:
+            raise HTTPException(status_code=400, detail="Invalid model specified")
+        
+        return {
+            "text": request.text,
+            "model": request.model,
+            "sentiment": "positive" if prediction == 1 else "negative",
+            "confidence": float(np.max(prediction)) if request.model == "lstm" else None
+        }
     
-    
-
-if __name__ == "__main__":
-    main()
-    
-   
-
-
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

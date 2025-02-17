@@ -9,7 +9,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import GridSearchCV
 from src.models.evaluate import evaluate_model
 
-def train_naive_bayes(x_train_tfidf, x_test_tfidf, y_train, y_test, evaluate_model):
+def train_naive_bayes(x_train_tfidf, x_test_tfidf, y_train, y_test):
     """
     Train a Naive Bayes model using the provided training and testing data.
     """

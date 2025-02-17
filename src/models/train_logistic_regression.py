@@ -10,7 +10,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from src.models.evaluate import evaluate_model
 
-def train_logistic_regression(X_train_tfidf, y_train, X_test_tfidf, y_test, evaluate_model):
+def train_logistic_regression(X_train_tfidf, y_train, X_test_tfidf, y_test):
     with mlflow.start_run():
         lr_model = LogisticRegression(max_iter=100)
         param_grid = {'C': [0.1, 1, 10]}
