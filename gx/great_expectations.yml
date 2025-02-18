@@ -189,5 +189,13 @@ fluent_datasources:
           batch definition:
             id: ff76f97c-7432-4f66-85f7-b6036acef47a
             partitioner:
+      steam_dataframe101:
+        type: dataframe
+        id: 04fab3a0-0edd-453d-ae25-4489fef20bd4
+        batch_metadata: {}
+        batch_definitions:
+          batch definition:
+            id: 6e4d5707-4dc8-4ea0-bfbc-d18b5fa97f17
+            partitioner:
 analytics_enabled:
 data_context_id: eee6900f-2907-4215-afaf-2efb7623fd4d

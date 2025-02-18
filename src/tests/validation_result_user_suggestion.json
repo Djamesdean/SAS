@@ -1,0 +1,39 @@
+{
+    "success": true,
+    "expectation_config": {
+        "type": "expect_column_distinct_values_to_be_in_set",
+        "kwargs": {
+            "batch_id": "pandas-steam_dataframe101",
+            "column": "user_suggestion",
+            "value_set": [
+                1,
+                0
+            ]
+        },
+        "meta": {}
+    },
+    "result": {
+        "observed_value": [
+            0,
+            1
+        ],
+        "details": {
+            "value_counts": [
+                {
+                    "value": 0,
+                    "count": 7526
+                },
+                {
+                    "value": 1,
+                    "count": 9968
+                }
+            ]
+        }
+    },
+    "meta": {},
+    "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+    }
+}
