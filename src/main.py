@@ -80,7 +80,10 @@ async def predict_sentiment(request: TextRequest):
             prediction = lstm_model.predict(cleaned_text)[0].item()
         else:
             raise HTTPException(status_code=400, detail="Invalid model specified")
-        
+        if prediction == 1:  # Positive prediction
+            POSITIVE_PREDICTIONS.inc()  # Increment the positive prediction counter
+        else:  # Negative prediction
+            NEGATIVE_PREDICTIONS.inc() 
         return {
             "text": request.text,
             "model": request.model,

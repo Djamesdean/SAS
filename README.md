@@ -253,6 +253,11 @@ Steps:
 Purpose: Prometheus is a monitoring and alerting toolkit used to gather metrics from our API and store them for analysis.
 Steps:
 - We added Prometheus-compatible metrics endpoints to our API (e.g., /metrics).
+    - Total Requests
+    - Request Latency
+    - Positive Predictions
+    - Negative Predictions
+    - Error count 
 - We configured Prometheus to scrape metrics from this endpoint (port 8000)  at regular intervals by creating yml file .
 - Prometheus collects metrics like request counts, latency, error rates, garbage collection statistics, and more.
 - it runs on port 9090
@@ -264,11 +269,13 @@ Steps:
 Purpose: Grafana is a visualization tool used to create dashboards and display metrics collected by Prometheus in a user-friendly way.
 Steps:
 - After setting up Prometheus, we connected Grafana to it as a data source , it runs at port 3000
-- We created dashboards in Grafana to visualize the metrics, such as response time distribution.
+- We created dashboards in Grafana to visualize the metrics.
 - Grafana allows us to customize how the data is displayed (e.g., time series graphs, pie charts, histograms).
-
-[Exemple of results](./reports/image4.png)
-
+Exemple of the tested results :
+- Pie Chart that shows the percentage of post (in blue) and get (in orange) requests from our API.
+[Result-1](./reports/image3.png)
+- Pie Chart that display the amount of positive (in orange) predictions compared to negative (in green) .
+[Results-2](./reports/image4.png)
 --- 
 
 
