@@ -1,0 +1,17 @@
+{
+	"ulid": "01JMC5JBM4KB46E5PHYMAP8W8M",
+	"minTime": 1739859447900,
+	"maxTime": 1739865600000,
+	"stats": {
+		"numSamples": 90159,
+		"numSeries": 119,
+		"numChunks": 733
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01JMC5JBM4KB46E5PHYMAP8W8M"
+		]
+	},
+	"version": 1
+}

@@ -1,0 +1,16 @@
+aliases: []
+creation_timestamp: 1739131499642
+current_stage: None
+description: null
+last_updated_timestamp: 1739131499642
+name: Naive Bayes
+run_id: f5d156e6a08546989594126221996865
+run_link: null
+source: file:///Users/merkava/Documents/School/Software%20engineering/SAS/src/tests/mlruns/0/f5d156e6a08546989594126221996865/artifacts/Naive
+  Bayes
+status: READY
+status_message: null
+storage_location: file:///Users/merkava/Documents/School/Software%20engineering/SAS/src/tests/mlruns/0/f5d156e6a08546989594126221996865/artifacts/Naive
+  Bayes
+user_id: null
+version: 1

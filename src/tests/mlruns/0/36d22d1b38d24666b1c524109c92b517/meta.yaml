@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/merkava/Documents/School/Software%20engineering/SAS/src/tests/mlruns/0/36d22d1b38d24666b1c524109c92b517/artifacts
+end_time: 1739133105574
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 36d22d1b38d24666b1c524109c92b517
+run_name: grandiose-dog-163
+run_uuid: 36d22d1b38d24666b1c524109c92b517
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739133091965
+status: 3
+tags: []
+user_id: merkava

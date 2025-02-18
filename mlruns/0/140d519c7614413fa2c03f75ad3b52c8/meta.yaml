@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/merkava/Documents/School/Software%20engineering/SAS/mlruns/0/140d519c7614413fa2c03f75ad3b52c8/artifacts
+end_time: 1738974460924
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 140d519c7614413fa2c03f75ad3b52c8
+run_name: bold-quail-747
+run_uuid: 140d519c7614413fa2c03f75ad3b52c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738974460917
+status: 4
+tags: []
+user_id: merkava
