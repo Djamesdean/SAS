@@ -1,4 +1,4 @@
-Sentiment Analysis for Steam Reviews
+# Sentiment Analysis for Steam Reviews
 ==============================
 
 working on sentiment analysis project for video games reviews in the steam platform .
@@ -218,6 +218,59 @@ Ensures reproducibility for experiments using the dataset.
 Facilitates better data management and sharing.
 
 [DARASET CARD](./docs/DATASET%20CARD.md)
+
+# DOCKER DEPLOYMENT 
+
+In this step we process the packaging your application along with its dependencies into a containerized environment, which can then be deployed anywhere. Docker uses containers to isolate applications, ensuring they run consistently across different environments (e.g., development, testing, production).
+
+[Docker File](./Dockerfile)
+
+---
+
+# Monitoring 
+
+This is the final step in our project and it is also a critical one  because it allow us to : 
+- Tracking System Performance: 
+This is crucial for understanding how the application behaves under different conditions, such as high traffic or varying load.
+- Identifying Bottlenecks: We can identify potential bottlenecks in our API's performance.
+- Optimizing and Scaling:We can make informed decisions about scaling your system (e.g., increasing server capacity or optimizing code). 
+Quality Assurance: For a sentiment analysis API, monitoring can help in ensuring that predictions are being served accurately and consistently under different load conditions.
+
+## Tools Used 
+
+### Locust:
+Purpose: Locust is used for load testing our API. It simulates multiple users (virtual users) interacting with the API to stress-test its performance and identify how it handles high volumes of traffic.
+Steps:
+- We installed Locust and created a test script that defines how users interact with the API 
+- We ran Locust locally on host 8000, specifying the number of users to simulate and the hatch rate (how fast users are added).
+- Locust provided a dashboard to visualize performance metrics, such as response time and failure rate.
+
+[Locustfile](./locustfile.py)
+[Result-1](./reports/image1.png)
+[Result-2](./reports/image2.png)
+
+### Prometheus 
+Purpose: Prometheus is a monitoring and alerting toolkit used to gather metrics from our API and store them for analysis.
+Steps:
+- We added Prometheus-compatible metrics endpoints to our API (e.g., /metrics).
+- We configured Prometheus to scrape metrics from this endpoint (port 8000)  at regular intervals by creating yml file .
+- Prometheus collects metrics like request counts, latency, error rates, garbage collection statistics, and more.
+- it runs on port 9090
+
+[PromethusFile](./prometheus.yml)
+[Exemple of Results](./reports/image3.png)
+
+### Grafana
+Purpose: Grafana is a visualization tool used to create dashboards and display metrics collected by Prometheus in a user-friendly way.
+Steps:
+- After setting up Prometheus, we connected Grafana to it as a data source , it runs at port 3000
+- We created dashboards in Grafana to visualize the metrics, such as response time distribution.
+- Grafana allows us to customize how the data is displayed (e.g., time series graphs, pie charts, histograms).
+
+[Exemple of results](./reports/image4.png)
+
+--- 
+
 
 ---
 

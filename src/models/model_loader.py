@@ -8,7 +8,6 @@ def load_fromdags(model_name):
   
     # Initialize DAGsHub and MLflow integration
     dagshub.init(repo_owner="Djamesdean", repo_name="SAS", mlflow=True)
-
     # Construct the model URI
     model_uri = f"models:/{model_name}/latest"
 
